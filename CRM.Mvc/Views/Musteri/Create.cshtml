@@ -1,0 +1,54 @@
+﻿@model CRM.Entities.Musteri
+
+@{
+    ViewData["Title"] = "Yeni Müşteri Ekle";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4><i class="bi bi-person-plus"></i> Yeni Müşteri Ekleme Formu</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Adı</label>
+                            <input asp-for="Ad" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Soyadı</label>
+                            <input asp-for="Soyad" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Telefon</label>
+                            <input asp-for="Telefon" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">E-posta</label>
+                            <input asp-for="Eposta" type="email" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Müşteri Durumu</label>
+                            <select asp-for="MusteriDurumu" class="form-select">
+                                <option value="Potansiyel">Potansiyel</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Pasif">Pasif</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Kaynak</label>
+                            <input asp-for="Kaynak" class="form-control" placeholder="Web, Telefon, Referans vb." />
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="/Musteri/Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Listeye Dön</a>
+                            <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i> Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

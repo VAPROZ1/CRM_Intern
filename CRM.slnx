@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="CRM.API/CRM.API.csproj" />
+  <Project Path="CRM.Business/CRM.Business.csproj" />
+  <Project Path="CRM.Common/CRM.Common.csproj" />
+  <Project Path="CRM.DataAccess/CRM.DataAccess.csproj" />
+  <Project Path="CRM.DTO/CRM.DTO.csproj" />
+  <Project Path="CRM.Entities/CRM.Entities.csproj" />
+  <Project Path="CRM.Mvc/CRM.Mvc.csproj" Id="e9e840a5-3a13-47a7-99e0-7e3919cd3fab" />
+</Solution>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CRM.Entities.Kullanici>
+
+@{
+    ViewData["Title"] = "Kullanıcı Listesi";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><i class="bi bi-person-badge"></i> Kullanıcı Yönetimi</h2>
+        <a href="/Kullanici/Create" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Yeni Kullanıcı Ekle</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Ad Soyad</th>
+                        <th>E-posta</th>
+                        <th>Aktif Mi?</th>
+                        <th>Kayıt Tarihi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Ad @item.Soyad</td>
+                                >
+                                <td>@item.Eposta</td>
+                                <td>
+                                    @if (item.AktifMi)
+                                    {
+                                        <span class="badge bg-success">Aktif</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Pasif</span>
+                                    }
+                                </td>
+                                <td>@item.OlusturmaTarihi.ToString("dd.MM.yyyy")</td>
+                                <td>
+                                    <a href="/Kullanici/Edit/@item.KullaniciId" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>
+                                    <a href="/Kullanici/Delete/@item.KullaniciId" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">Henüz kayıtlı kullanıcı bulunmamaktadır.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

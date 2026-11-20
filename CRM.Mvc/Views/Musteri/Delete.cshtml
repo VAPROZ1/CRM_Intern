@@ -1,0 +1,44 @@
+﻿@model CRM.Entities.Musteri
+
+@{
+    ViewData["Title"] = "Müşteri Sil";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4><i class="bi bi-trash"></i> Müşteri Silme Onayı</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        Bu müşteriyi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!
+                    </div>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Adı Soyadı:</dt>
+                        <dd class="col-sm-9">@Model.Ad @Model.Soyad</dd>
+
+                        <dt class="col-sm-3">Telefon:</dt>
+                        <dd class="col-sm-9">@Model.Telefon</dd>
+
+                        <dt class="col-sm-3">E-posta:</dt>
+                        <dd class="col-sm-9">@Model.Eposta</dd>
+
+                        <dt class="col-sm-3">Durum:</dt>
+                        <dd class="col-sm-9">@Model.MusteriDurumu</dd>
+                    </dl>
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="MusteriId" />
+                        <div class="d-flex justify-content-between">
+                            <a href="/Musteri/Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Vazgeç / Listeye Dön</a>
+                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Evet, Sil</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
